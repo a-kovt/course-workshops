@@ -27,7 +27,7 @@ jobs:
     env:
       TEST_DATABASE_URL: postgresql://prize:prize@localhost:5432/prize
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v7
       - run: uv sync --locked
       - run: psql "$TEST_DATABASE_URL" -f ../infra/postgres/init.sql
@@ -42,7 +42,7 @@ jobs:
       run:
         working-directory: 01-race-conditions/frontend
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v5
         with:
           node-version: 26
