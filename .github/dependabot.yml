@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: uv
+    directory: /01-race-conditions/backend
+    schedule:
+      interval: weekly
+  - package-ecosystem: npm
+    directory: /01-race-conditions/frontend
+    schedule:
+      interval: weekly
+    groups:
+      frontend:
+        patterns: ["*"]
+  - package-ecosystem: docker
+    directories: [/01-race-conditions/backend, /01-race-conditions/frontend]
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker-compose
+    directory: /01-race-conditions
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
